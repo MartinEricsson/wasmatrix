@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wasmatrix test</title>
+    <script src="index_test.js" type="module"></script>
+    <style>
+      body {
+        background-color: rgb(10, 10, 10);
+        font-family: monospace;
+      }
+      marquee {
+        font-size: 24px;
+      }
+
+      .first {
+        color: violet;
+      }
+
+      .second {
+        color: lime;
+      }
+
+      .third {
+        color: red;
+      }
+
+      .fourth {
+        color: rgb(235, 240, 245);
+        border: dashed;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <marquee class="second" width="130" direction="up">Test page</marquee>
+      <marquee
+        direction="down"
+        width="250"
+        height="200"
+        behavior="alternate"
+        class="fourth"
+      >
+        <marquee behavior="alternate" class="third">
+          Wasmatrix
+        </marquee>
+      </marquee>
+      <marquee class="first" direction="left">check console</marquee>
+    </div>
+  </body>
+</html>

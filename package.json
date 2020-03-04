@@ -1,0 +1,25 @@
+{
+  "name": "wasmatrix",
+  "version": "0.0.1",
+  "description": "A wasm math library",
+  "main": "index.js",
+  "scripts": {
+    "start": "node serve.js",
+    "compile": "rollup compile.js --format umd --name 'wasmatrix' --file wasmatrix-compiler.js && node wasmatrix-compiler.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinEricsson/wasmatrix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartinEricsson/wasmatrix/issues"
+  },
+  "homepage": "https://github.com/MartinEricsson/wasmatrix#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "wabt": "^1.0.0",
+    "rollup": "^0.58.2"
+  }
+}
