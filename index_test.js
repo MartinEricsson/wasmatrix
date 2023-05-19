@@ -175,11 +175,11 @@ const testDivide = (divide, buffer) => {
   const ansBA = buffer.inspect(d);
   console.assert(
     ansAB[0] == 1 &&
-      ansAB[1] == 2.5 &&
-      ansAB[2] == 7 &&
-      ansBA[0] == 1 &&
-      ansBA[1] == 0.4000000059604645 &&
-      ansBA[2] == 0.1428571492433548
+    ansAB[1] == 2.5 &&
+    ansAB[2] == 7 &&
+    ansBA[0] == 1 &&
+    ansBA[1] == 0.4000000059604645 &&
+    ansBA[2] == 0.1428571492433548
   );
   console.groupEnd();
 };
@@ -187,10 +187,23 @@ const testDivide = (divide, buffer) => {
 const testCos = cos => {
   const EPS = 0.01;
   console.groupCollapsed("cos approximation");
-  for (let angle = -2 * Math.PI; angle <= 2 * Math.PI; angle += 0.1) {
-    console.log(Math.abs(Math.cos(angle) - cos(angle)));
-    console.assert(Math.abs(Math.cos(angle) - cos(angle)) < EPS);
+  let range = 10000;
+  let loops = 0;
+  let min = 10;
+  let max = -10;
+  let abort = false;
+  for (let angle = -2 * Math.PI * range; angle <= 2 * Math.PI * range && !abort; angle += 0.01) {
+    loops++;
+    let res = Math.abs(Math.cos(angle) - cos(angle));
+    max = Math.max(max, res);
+    min = Math.min(min, res);
+    if (res >= EPS) {
+      abort = true;
+      console.error(loops, res)
+    }
+    console.assert(res < EPS);
   }
+  console.log(loops, min, max)
   console.groupEnd();
 };
 
